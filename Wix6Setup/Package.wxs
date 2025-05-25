@@ -1,0 +1,83 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+	 xmlns:util="http://wixtoolset.org/schemas/v4/wixutil"
+	 xmlns:bal="http://wixtoolset.org/schemas/v4/wixbal"
+	 xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui"
+	 xmlns:netfx="http://wixtoolset.org/schemas/v4/wixnetfx">
+
+	<!-- Note: I had big problems getting this Wix6-Sample-Setup project 
+	           to build when I changed the boilerplate code to use any
+			   special dialog set, e.g. WixUI_Mondo.  After a great deal
+			   of research and many false leads here is how I fixed it:
+
+				1. From the menu select Tools / NuGet Package Manager
+				                              / Manage NuGet Packages for Solution
+
+				2. Click on the Browse tab, enter "WixToolset.UI" (without double quotes) 
+				   in the search edit box.
+
+				3. You will see WixToolset.UI.wixext.  Download that.
+
+				4. After reading the license, agree to it and click Install.
+				   You will be warned that changes are about to be made, accept them
+
+				5. Expand the Wix6-Sample-Setup project in Solution Explorer.
+				   Under Dependencies you will see WiX Extensions / WixToolset.UI
+
+				6. In the Output window select "Show output from Package Manager".
+				   You will see the following entry:
+				   Installing NuGet package WixToolset.UI.wixext 6.0.0.
+				   That's how you know you have the right version of the package.
+				   
+				7. Make sure this line is part of the <Wix xmlns collections (top of file):
+				   xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui"
+
+                *** THE PROJECT FINALLY BUILDS SUCCESSFULLY! ***
+			   -->
+
+	<Package Id="TODO_Manufacturer.Wix6_Sample_Setup"
+		     Name="Wix6-Sample App"
+		     Manufacturer="FreeAndEasy Tech"
+		     Version="6.0.0.0">
+		    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+
+		<!-- Embed the cab file into the msi file-->
+		<MediaTemplate EmbedCab="yes" />
+
+		<!-- Just as a default we'll go with the WixUI_Minimal dialog set -->
+		<!-- but you can see other values below, with sample code. -->
+		<ui:WixUI Id="WixUI_Minimal" />
+
+		<!-- LESSON LEARNED:  In order to customize the text of the standard "lorem ipsum" license,
+        add the WixVariable below. -->
+		<WixVariable Id="WixUILicenseRtf" Value=".\Resources\MyLicenseAgreement.rtf" />
+
+		<!-- Let's customize the appearance of the dialogs with some bitmaps.-->
+		<Property Id="WixUIBannerBmp" Value=".\Resources\LogoFileGENERIC.bmp" />
+		<Property Id="WixUIBannerSideBmp" Value=".\Resources\LogoSideFileGENERIC.bmp" />
+
+		<!--		<ui:WixUI Id="WixUI_Mondo"   /> -->
+		<!--		<ui:WixUI Id="WixUI_Minimal" /> -->
+		<!--		<ui:WixUI Id="WixUI_FeatureTree" /> -->
+
+		<!-- *** Note that if you use <ui:WixUI Id="WixUI_InstallDir"/>
+		         you must define the WIXUI_INSTALLDIR property to avoid a run-time error:
+		         <ui:WixUI Id="WixUI_InstallDir" />
+		         <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />  -->
+
+		<!-- *** Note that if you use <ui:WixUI Id="WixUI_Advanced"/> 
+		         you must also define the following properties or it will not compile:
+                 <Property Id="ApplicationFolderName" Value="MyApplicationFolder" />
+                 <Property Id="WixAppFolder" Value="WixPerUserFolder" />  -->
+		<!-- You could also set the Value of WixAppFolder to "WixPerMachineFolder" 
+				 but don't forget to creat a Directory in a Fragment -->
+		<!--
+		<ui:WixUI Id="WixUI_Advanced" />
+		<Property Id="ApplicationFolderName" Value="My Application Folder" />
+		<Property Id="WixAppFolder" Value="WixPerUserFolder"/>		
+-->
+
+		<Feature Id="Main">
+      <ComponentGroupRef Id="ExampleComponents" />
+    </Feature>
+  </Package>
+</Wix>
