@@ -3,9 +3,16 @@
     <OutputType>Bundle</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Resources\LogoFileGENERIC.bmp" />
+    <Content Include="Resources\LogoSideFileGENERIC.bmp" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="WixToolset.BootstrapperApplications.wixext" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wix6Setup\Wix6Setup.wixproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MyLicenseAgreement.rtf" />
   </ItemGroup>
 </Project>

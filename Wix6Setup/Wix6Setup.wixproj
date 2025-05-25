@@ -1,8 +1,15 @@
 ﻿<Project Sdk="WixToolset.Sdk/6.0.0">
   <ItemGroup>
+    <Content Include="Resources\LogoFileGENERIC.bmp" />
+    <Content Include="Resources\LogoSideFileGENERIC.bmp" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="WixToolset.UI.wixext" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\MyLicenseAgreement.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wix6SampleApp.csproj" />
   </ItemGroup>
 </Project>
