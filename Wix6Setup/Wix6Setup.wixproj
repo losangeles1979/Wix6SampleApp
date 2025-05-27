@@ -10,6 +10,7 @@
     <None Include="Resources\MyLicenseAgreement.rtf" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CASayHello\CASayHello.csproj" />
     <ProjectReference Include="..\Wix6SampleApp.csproj" />
   </ItemGroup>
 </Project>

@@ -74,8 +74,32 @@
 		<ui:WixUI Id="WixUI_Advanced" />
 		<Property Id="ApplicationFolderName" Value="My Application Folder" />
 		<Property Id="WixAppFolder" Value="WixPerUserFolder"/>		
--->
+        -->
 
+		<!-- *** BEGIN CUSTOM ACTIONS SECTION -->
+
+		<!-- Custom actions are written in C# in this DLL
+         PROPER WAY to do this is right-click the solution, or folder, and then:
+         Add / New Project / C# Custom Action Project for WiX v3
+         ESPECIALLY NOTE that the output will be something like 
+         MyProjectName.CA.dll and *not* MyProjectName.dll -->
+		<Binary Id="MyCustomActions"
+				SourceFile="CASayHello.CA.dll">
+		</Binary>
+
+		<!-- NOTE: The CustomAction BinaryRef must be the same as the Binary Id above! -->
+		<CustomAction Id="DisplayHelloDialog"
+              BinaryRef="MyCustomActions"
+			  DllEntry="SayHello"
+			  Execute="deferred"
+			  Impersonate="yes"
+			  Return="ignore"
+			  HideTarget="no"/>
+
+		<InstallExecuteSequence>
+			<Custom Action="DisplayHelloDialog" After="InstallInitialize"/>
+		</InstallExecuteSequence>
+		
 		<Feature Id="Main">
       <ComponentGroupRef Id="ExampleComponents" />
     </Feature>
