@@ -4,6 +4,10 @@
       <Component>
         <File Source="Wix6SampleApp.exe" />
       </Component>
+		<Component Id="MyRegKey1" Guid="{A0B74FCF-420C-4F6D-8564-B156536F3955}">
+			<RegistryValue Root="HKCU" Key="Software\FreeAndEasy Tech\Wix6SampleApp\Params"
+						   Name="Metric1" Type="integer" Value="10" KeyPath="yes" />
+		</Component>
     </ComponentGroup>
   </Fragment>
 </Wix>

@@ -100,8 +100,23 @@
 			<Custom Action="DisplayHelloDialog" After="InstallInitialize"/>
 		</InstallExecuteSequence>
 		
-		<Feature Id="Main">
+		<!-- BEGIN SHORTCUT SECTION -->
+		<DirectoryRef Id="ApplicationProgramsFolder">
+			<Component Id="ApplicationShortcut" Guid="{7E4F7ED6-7AC5-4BD8-AEC9-3B45FEE705A8}">
+				<Shortcut Id="ApplicationStartMenuShortcut"
+						  Name="Wix6SampleApp"
+						  Description="Best App Ever"
+						  Target="[INSTALLFOLDER]Wix6SampleApp.exe"
+						  Advertise="no" />
+				<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+				<RegistryValue Root="HKCU" Key="Software\FreeAndEasy Tech\Wix6SampleApp"
+							   Name="installed" Type="integer" Value="1" KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+
+	<Feature Id="Main" Title="Program Files" Level="1">
       <ComponentGroupRef Id="ExampleComponents" />
+	  <ComponentRef Id="ApplicationShortcut"/>
     </Feature>
   </Package>
 </Wix>
