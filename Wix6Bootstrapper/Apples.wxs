@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal"
+     xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
+  <Fragment Id="ApplesPackageGroup">
+
+    <!--Use util:RegistrySearch to create what InstallShield would call a "Detection Condition"
+        for an ExePackage.  This is not necessary for msi installs. -->
+	  <util:RegistrySearch Id="FindApples" Variable="APPLESEXISTS" Result="exists"
+						   Root="HKLM"
+						   Key="SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{F0318977-9DB9-4F04-AA8B-DEF3D8C61EC8}" />
+    
+    <!--As an alternative, you can use util:FileSearch to create what InstallShield would call a "Detection Condition"
+        for an ExePackage.  This is not necessary for msi installs.
+    <util:FileSearch Id="FindApples" Variable="APPLESEXISTS" Result="exists"
+                         Path="[ProgramFilesFolder]SatSuite\Fruit Apps\Apples\Apples.exe"/>
+     -->
+    
+    <PackageGroup Id="ApplesPackageGroup">
+      <ExePackage SourceFile="..\PROGRAM_FILES\Apples\ApplesSetup.exe"
+                  Name="Apples\ApplesSetup.exe"
+                  InstallArguments='/s /f1".\ApplesSetup-SilentInstall.iss"'
+                  RepairArguments='/s /f1".\ApplesSetup-SilentInstall.iss"'
+                  UninstallArguments='/s /f1".\ApplesSetup-SilentUnInstall.iss"'
+                  Permanent="no"
+                  Compressed="no"
+                  Vital="yes"
+                  DetectCondition="APPLESEXISTS">
+        <!-- include additional file(s) via the <Payload> sub-elements. -->
+        <Payload  Compressed="no"
+                  Name="ApplesSetup-SilentInstall.iss"
+                  SourceFile="..\PROGRAM_FILES\Apples\ApplesSetup-SilentInstall.iss"/>
+        <Payload  Compressed="no"
+                  Name="ApplesSetup-SilentUnInstall.iss"
+                  SourceFile="..\PROGRAM_FILES\Apples\ApplesSetup-SilentUnInstall.iss"/>
+      </ExePackage>
+    </PackageGroup>
+  </Fragment>
+</Wix>

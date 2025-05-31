@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36121.58 d17.14
+VisualStudioVersion = 17.14.36121.58
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wix6SampleApp", "Wix6SampleApp.csproj", "{22A2EC0C-64F2-4C5D-965F-312EC1A149E3}"
 EndProject
@@ -14,6 +14,20 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CASayHello", "CASayHello\CASayHello.csproj", "{09E8989B-5A46-4106-A0D4-87D95F7ABB70}"
 EndProject
 Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "Wix6Bootstrapper", "Wix6Bootstrapper\Wix6Bootstrapper.wixproj", "{44D4A3C4-98A1-47C6-87F1-310D9A0321EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PROGRAM_FILES", "PROGRAM_FILES", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apples", "Apples", "{69EBC59E-889E-418B-8F64-BBAC0A86B657}"
+	ProjectSection(SolutionItems) = preProject
+		PROGRAM_FILES\Apples\ApplesSetup-SilentInstall.iss = PROGRAM_FILES\Apples\ApplesSetup-SilentInstall.iss
+		PROGRAM_FILES\Apples\ApplesSetup-SilentUnInstall.iss = PROGRAM_FILES\Apples\ApplesSetup-SilentUnInstall.iss
+		PROGRAM_FILES\Apples\ApplesSetup.exe = PROGRAM_FILES\Apples\ApplesSetup.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Oranges", "Oranges", "{2ADE5D43-A7B6-4A59-AC2C-85761E6A0D64}"
+	ProjectSection(SolutionItems) = preProject
+		PROGRAM_FILES\Oranges\OrangesSetup.msi = PROGRAM_FILES\Oranges\OrangesSetup.msi
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +108,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69EBC59E-889E-418B-8F64-BBAC0A86B657} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{2ADE5D43-A7B6-4A59-AC2C-85761E6A0D64} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D0F96392-27D4-4C18-88DF-7BC5DD708401}

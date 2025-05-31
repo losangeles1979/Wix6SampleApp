@@ -1,5 +1,8 @@
 ﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
-  <Bundle Id="TODO_Manufacturer.Wix6Bootstrapper" Name="Wix6Bootstrapper" Manufacturer="TODO Manufacturer" Version="1.0.0.0">
+  <Bundle Id="TODO_Manufacturer.Wix6Bootstrapper" 
+		  Name="Wix6Bootstrapper" 
+		  Manufacturer="FreeAndEasy Tech" 
+		  Version="6.0.0.0">
     <BootstrapperApplication>
       <bal:WixStandardBootstrapperApplication LicenseUrl="https://www.example.com/license" Theme="hyperlinkLicense" />
     </BootstrapperApplication>
@@ -7,6 +10,18 @@
     <Chain>
       <!-- TODO: Define the list of chained packages. -->
       <MsiPackage SourceFile="Wix6Setup.msi" />
+
+      <!-- You can include an InstallShield *.exe setup project -->
+      <PackageGroupRef Id="ApplesPackageGroup"/>
+
+      <!-- You can include an InstallShield *.msi setup project -->
+      <PackageGroupRef Id="OrangesPackageGroup"/>
+
+      <!--Neat discovery: you can have a "package group" that calls a batch file. 
+          This avoids using custom actions.   See the link below. 
+          https://stackoverflow.com/questions/18901452/execute-script-between-msi-packages-during-bootstrapper 
+      -->
+	<!--	<PackageGroupRef Id="CustomCopySomeFilesPackageGroup"/>  -->
     </Chain>
 
   </Bundle>

@@ -8,11 +8,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="WixToolset.BootstrapperApplications.wixext" Version="6.0.0" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wix6Setup\Wix6Setup.wixproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MyLicenseAgreement.rtf" />
+    <None Include="Scripts\CustomCopyFiles.bat" />
   </ItemGroup>
 </Project>

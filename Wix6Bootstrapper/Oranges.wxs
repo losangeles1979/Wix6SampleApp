@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  
+  <Fragment Id="OrangesPackageGroup">
+    <!--Note: an msi package group does not need a clause to define what InstallShield would call a "Detection Condition".
+        It is self-managing (knows how to install, find, and uninstall itself).
+        for an ExePackage.  This is not necessary for msi installs. -->
+
+    <PackageGroup Id="OrangesPackageGroup">
+      <MsiPackage SourceFile="..\PROGRAM_FILES\Oranges\OrangesSetup.msi"
+                  Name="Oranges\OrangesSetup.msi"
+                  Visible="yes" 
+                  Compressed="no" 
+				  Vital="yes"  
+				  Permanent="no"/>
+    </PackageGroup>
+  </Fragment>
+</Wix>
