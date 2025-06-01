@@ -7,7 +7,7 @@
     <!-- In earlier versions of WiX we did not need to use a "Detection Condition" for this.
 	     But in WiX 6, we do need to use a "Detection Condition" for ExePackage. -->
     <util:FileSearch Id="FindCustomCopySomeFiles" Variable="MYFILEEXISTS" Result="exists"
-                         Path="[ProgramFiles64Folder]MyApp\MyApp.exe"/>
+                         Path="[ProgramFiles64Folder]FreeAndEasy Tech Wix6-Sample App\Wix6SampleApp.exe"/>
     
     <PackageGroup Id="CustomCopySomeFilesPackageGroup">
       <ExePackage Id="CustomCopyFilesScript"  

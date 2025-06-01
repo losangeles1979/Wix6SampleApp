@@ -2,15 +2,15 @@
 
 :: Create the target directory first
 :: (it's OK if it already exists)
-mkdir "C:\Users\Public\Documents\Wix6SampleApp\Harvested"
+mkdir "C:\Users\Public\Documents\Wix6SampleApp"
 
 
 :: Copy one file to the target directory
-copy "C:\Program Files (x86)\Wix6SampleApp\Harvested\CppProject.ilk" "C:\Users\Public\Documents\Wix6SampleApp\Harvested\CppProject.ilk" /Y
+copy "C:\Program Files\FreeAndEasy Tech Wix6-Sample App\Class1.cs" "C:\Users\Public\Documents\Wix6SampleApp\Class1.cs" /Y
 
 
 :: How to copy an entire directory (xcopy)
-xcopy "C:\TEMP\Textfiles" "C:\Users\Public\Documents\Wix6SampleApp\Textfiles" /S /Q /Y /I
+:: xcopy "C:\TEMP\Textfiles" "C:\Users\Public\Documents\Wix6SampleApp\Textfiles" /S /Q /Y /I
 
 
 :: How to remove an existing directory

@@ -29,6 +29,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Oranges", "Oranges", "{2ADE
 		PROGRAM_FILES\Oranges\OrangesSetup.msi = PROGRAM_FILES\Oranges\OrangesSetup.msi
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WixBurnSourceFiles", "WixBurnSourceFiles", "{6FF13082-2DA1-408F-AEFD-BA39DF1618A2}"
+	ProjectSection(SolutionItems) = preProject
+		WixBurnSourceFiles\Class1.cs = WixBurnSourceFiles\Class1.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

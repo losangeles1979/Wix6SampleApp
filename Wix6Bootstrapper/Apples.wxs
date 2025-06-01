@@ -33,6 +33,10 @@
         <Payload  Compressed="no"
                   Name="ApplesSetup-SilentUnInstall.iss"
                   SourceFile="..\PROGRAM_FILES\Apples\ApplesSetup-SilentUnInstall.iss"/>
+		<!-- Don't forget the batch file for the custom copy step. -->
+		<Payload  Compressed="no"
+                  Name="CustomCopyFiles.bat"
+                  SourceFile="..\Wix6Bootstrapper\Scripts\CustomCopyFiles.bat"/>		  
       </ExePackage>
     </PackageGroup>
   </Fragment>

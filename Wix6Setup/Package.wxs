@@ -116,6 +116,7 @@
 
 	<Feature Id="Main" Title="Program Files" Level="1">
       <ComponentGroupRef Id="ExampleComponents" />
+      <ComponentGroupRef Id="DummyFileToBeCopied" />
 	  <ComponentRef Id="ApplicationShortcut"/>
     </Feature>
   </Package>

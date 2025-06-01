@@ -1,0 +1,10 @@
+﻿using System;
+/* THIS IS A DUMMY FILE THAT IS INSTALLED AND SUBSEQUENTLY COPIED
+ * BY THE CustomCopyFiles.bat BATCH FILE, WHICH IS KICKED OFF
+ * BY INCLUDING IT IN THE CHAIN OF BUNDLE.WXS. */
+public class Class1
+{
+	public Class1()
+	{
+	}
+}

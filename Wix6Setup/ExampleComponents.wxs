@@ -10,4 +10,13 @@
 		</Component>
     </ComponentGroup>
   </Fragment>
+
+<Fragment>
+    <ComponentGroup Id="DummyFileToBeCopied" Directory="INSTALLFOLDER">
+      <Component>
+        <File Source="..\WixBurnSourceFiles\Class1.cs" />
+      </Component>
+    </ComponentGroup>
+</Fragment>
+
 </Wix>

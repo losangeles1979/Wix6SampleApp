@@ -6,7 +6,7 @@
     <BootstrapperApplication>
       <bal:WixStandardBootstrapperApplication LicenseUrl="https://www.example.com/license" Theme="hyperlinkLicense" />
     </BootstrapperApplication>
-
+	
     <Chain>
       <!-- TODO: Define the list of chained packages. -->
       <MsiPackage SourceFile="Wix6Setup.msi" />
@@ -20,8 +20,9 @@
       <!--Neat discovery: you can have a "package group" that calls a batch file. 
           This avoids using custom actions.   See the link below. 
           https://stackoverflow.com/questions/18901452/execute-script-between-msi-packages-during-bootstrapper 
-      -->
-	<!--	<PackageGroupRef Id="CustomCopySomeFilesPackageGroup"/>  -->
+		  BE AWARE this "maroons" the copied file.  It persists.
+		  If you want it to be uninstalled, a custom action would be needed. -->
+	  <PackageGroupRef Id="CustomCopySomeFilesPackageGroup"/>
     </Chain>
 
   </Bundle>
