@@ -29,9 +29,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Oranges", "Oranges", "{2ADE
 		PROGRAM_FILES\Oranges\OrangesSetup.msi = PROGRAM_FILES\Oranges\OrangesSetup.msi
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WixBurnSourceFiles", "WixBurnSourceFiles", "{6FF13082-2DA1-408F-AEFD-BA39DF1618A2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WixHarvestSourceFiles", "WixHarvestSourceFiles", "{D8203F21-F62B-458F-95C1-79EDEEF88E30}"
 	ProjectSection(SolutionItems) = preProject
-		WixBurnSourceFiles\Class1.cs = WixBurnSourceFiles\Class1.cs
+		WixHarvestSourceFiles\Class1.cs = WixHarvestSourceFiles\Class1.cs
+		WixHarvestSourceFiles\Class2.cs = WixHarvestSourceFiles\Class2.cs
 	EndProjectSection
 EndProject
 Global

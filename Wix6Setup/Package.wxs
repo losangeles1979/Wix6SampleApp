@@ -120,4 +120,54 @@
 	  <ComponentRef Id="ApplicationShortcut"/>
     </Feature>
   </Package>
+	
+<!--
+PLEASE NOTE: I TRIED TO USE THE NEW "HARVEST" CAPABILITY OF WIX VERSION 6,
+             WHICH REPLACES BURN.EXE (BEING DEPRECATED).
+			 BUT AS OF JUNE 1, 2025 IT IS STILL NOT READY.
+			 AFTER MANY FAILED ATTEMPTS I CONSULTED GITHUB COPILOT IT SAID THIS:
+			 
+You are correct: as of early 2024, the WiX Toolset v6 extensions—including WixToolset.Harvest.Extension—are not yet published on nuget.org. This is a known limitation and is the root cause of your issues. The documentation and some blog posts may reference these extensions, but they are not publicly available for download or use with the wix extension add command.
+Summary of the situation:
+•	The WiX v6 CLI and core tools are available.
+•	The official harvest extension for WiX v6 is not yet published on NuGet or elsewhere.
+•	You cannot use wix harvest or any harvesting extension with WiX v6 at this time.
+•	There is no official or supported workaround for harvesting in WiX v6 as of now.
+What can you do?
+1.	Manual authoring:
+Manually create your .wxs fragments for files and directories you want to install.
+2.	Use WiX 3.11 heat.exe:
+You can use the heat.exe tool from WiX 3.11 to generate .wxs fragments, then include those fragments in your WiX 6 project. The XML output is compatible, but you may need to adjust some attributes or syntax.
+3.	Monitor the WiX Toolset GitHub and website:
+Watch for announcements about the release of the harvest extension for WiX 6.
+
+So I asked GitHub Copilot to write the code for the old way of harvesting files
+using heat.exe. It gave me this command to use in the command prompt:
+	 heat dir WixHarvestSourceFiles -cg HeatGenerated -dr HeatFilesFolder -sreg -srd -scom -sfrag -suid -out WixHarvestSourceFiles.wxs
+
+I then discovered that heat.exe is not included in the WiX v6 SDK!!
+
+I double checked this with GitHub Copilot and it confirmed this:
+Your understanding is correct—WiX 6 does not include heat.exe, 
+and the new harvesting feature is not yet available. 
+Many developers share your frustration about needing multiple WiX versions 
+to be installed for this workflow. When WiX 6 harvesting is released, 
+it should be much more streamlined. Until then, manual authoring 
+or using WiX 3's heat.exe are the only options.
+
+CONCLUDE:  This is really lame.  I'll just wait for the WiX team to finish the harvesting feature.
+-->	
+
+<!-- For historical reference, here is part of code needed for
+     the old way of harvesting files (as used in WiX Toolset v3)
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<ComponentGroupRef Id="HeatGenerated"  />
+			<Component Id="MyRegKey1" Guid="{598171AF-21E7-4439-95FE-C3814490885E}">
+			<RegistryValue Root="HKCU" Key="Software\FreeAndEasy Tech\Wix6SampleApp\Params"
+                       Name="Metric1" Type="integer" Value="10" KeyPath="yes" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+-->
 </Wix>
