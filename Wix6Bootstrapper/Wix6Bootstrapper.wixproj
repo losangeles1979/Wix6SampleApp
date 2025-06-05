@@ -3,6 +3,7 @@
     <OutputType>Bundle</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Resources\CustomHyperlinkSidebarTheme.xml" />
     <Content Include="Resources\LogoFileGENERIC.bmp" />
     <Content Include="Resources\LogoSideFileGENERIC.bmp" />
   </ItemGroup>
@@ -15,6 +16,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MyLicenseAgreement.rtf" />
+	<None Include="Resources\LogoFileGENERIC.bmp" />
+	<None Include="Resources\LogoSideFileGENERIC.bmp" />
+	<None Include="Resources\CustomHyperlinkSidebarTheme.wxl" />
+	<None Include="Resources\CustomHyperlinkSidebarTheme.xml" />
     <None Include="Scripts\CustomCopyFiles.bat" />
   </ItemGroup>
 </Project>

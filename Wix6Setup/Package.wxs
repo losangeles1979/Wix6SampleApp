@@ -51,11 +51,33 @@
         add the WixVariable below. -->
 		<WixVariable Id="WixUILicenseRtf" Value=".\Resources\MyLicenseAgreement.rtf" />
 
-		<!-- Let's customize the appearance of the dialogs with some bitmaps.-->
-		<Property Id="WixUIBannerBmp" Value=".\Resources\LogoFileGENERIC.bmp" />
-		<Property Id="WixUIBannerSideBmp" Value=".\Resources\LogoSideFileGENERIC.bmp" />
+		<!-- This is how version 3 of WiX could customize the appearance of the dialogs with some bitmaps.
+		     But in WiX v6 this is done differently.  You use a Theme file.
+		<Property Id="WixUIBannerBmp" Value="Resources\LogoFileGENERIC.bmp" />
+		<Property Id="WixUIBannerSideBmp" Value="Resources\LogoSideFileGENERIC.bmp" />
 
-		<!--		<ui:WixUI Id="WixUI_Mondo"   /> -->
+        In WiX v6 you are supposed to be able to use a Theme file like this:
+		<WixVariable Id="WixUIThemeFile" Value=".\Resources\CustomHyperlinkSidebarTheme.xml" />
+		
+		But this is not ready as of June 2025.
+		
+		*** Summary conversation with GitHub Copilot ***
+		
+You are correct that, as of mid-2024, the WiX Toolset v6 UI theme XML files are not published in a stable, browsable location on GitHub or included with the NuGet packages. The official WixToolset.UI repository is private or not yet available for public browsing, which means you cannot directly download sample theme XMLs for MSI dialogs as you could with WiX 3.x.
+Summary of the situation:
+•	There is currently no official, public source for WiX 6 UI theme XML files.
+•	The WiX 6 documentation references the new theme system, but does not provide downloadable sample XMLs.
+•	The only themes available are the built-in ones, which are embedded in the WiX UI extension and not user-accessible.
+•	You cannot easily customize dialog bitmaps for MSI dialogs in WiX 6 without a sample theme file as a starting point.
+What you can do:
+•	Monitor the WiX Toolset GitHub organization and the official documentation for updates.
+•	If you have access to the WiX 6 source code (for example, if it becomes public), you may be able to extract the theme XMLs from there in the future.
+•	For now, you are limited to the built-in themes and cannot fully customize the MSI dialog appearance as you could in WiX 3.x.
+Conclusion:
+You are correct—at this time, you have reached an impasse for full dialog theming in WiX 6 unless/until the WiX team publishes the theme XMLs or makes the UI repo public.
+If you need further guidance or want to explore any workarounds, let me know!
+		-->
+		<!--		<ui:WixUI Id="WixUI_Mondo"   /> --> 
 		<!--		<ui:WixUI Id="WixUI_Minimal" /> -->
 		<!--		<ui:WixUI Id="WixUI_FeatureTree" /> -->
 

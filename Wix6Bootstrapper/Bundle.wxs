@@ -4,7 +4,14 @@
 		  Manufacturer="FreeAndEasy Tech" 
 		  Version="6.0.0.0">
     <BootstrapperApplication>
-      <bal:WixStandardBootstrapperApplication LicenseUrl="https://www.example.com/license" Theme="hyperlinkLicense" />
+      <bal:WixStandardBootstrapperApplication  
+		   Theme="rtfLicense"
+           ShowVersion="yes"
+           LicenseFile="Resources\MyLicenseAgreement.rtf"
+           SuppressOptionsUI="yes"
+           LogoFile="Resources\LogoFileGENERIC.bmp"
+           LogoSideFile="Resources\LogoSideFileGENERIC.bmp"
+           />
     </BootstrapperApplication>
 	
     <Chain>
